@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Pais {
@@ -18,7 +18,7 @@ public class Pais {
 	private String idioma;
 	private String capital;
 
-	@OneToOne
+	@ManyToOne
 	private Continente continente;
 
 	public Long getId() {
