@@ -7,10 +7,12 @@
 		<title>Resultado</title>
 	</head>
 	<body>
-			<h2>Texto Ingresado : <p>${textoIngresado} </p></h2>
-			<h2>Resultado de la operacion: <p>${resultado} </p></h2>
+			<h2>
+			El resultado de ${metodo} sobre ${textoIngresado} es: <br> 
+			${resultado}
+			</h2>
 			
-			<a href="http://localhost:8080/sitio/menuConvertidor" ">volver al menu</a>
+			<a href="http://localhost:8080/sitio/menuConvertidor">volver al menu</a>
 
 	  </body>
 	</body>

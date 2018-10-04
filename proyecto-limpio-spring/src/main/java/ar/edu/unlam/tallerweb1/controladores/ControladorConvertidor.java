@@ -25,15 +25,19 @@ public class ControladorConvertidor {
 		switch(metodo) {
 			case "pasarMayuscula":
 				modelo.put("resultado", cadena.toUpperCase());
+				modelo.put("método", " Pasar a mayúscula");
 				break;
 			case "pasarMinuscula":
 				modelo.put("resultado", cadena.toLowerCase());
+				modelo.put("método", " Pasar a minuscula");
 				break;
 			case "invertirOrden":
 				modelo.put("resultado", invertirCadena(cadena));
+				modelo.put("método", " Invertir orden");
 				break;
 			case "cantCaracteres":
 				modelo.put("resultado", cadena.length());
+				modelo.put("método", " Cantidad de caracteres");
 				break;
 		}
 		
