@@ -2,42 +2,41 @@ package ar.edu.unlam.tallerweb1.controladores;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class ControladorConvertidor {
-	
 	@RequestMapping(path = "/menuConvertidor", method = RequestMethod.GET)
 	public ModelAndView irAConvertidor() {
 		return new ModelAndView("menuConvertidor");
 	}
 	
-	@RequestMapping("mostrarResultado")
-	public ModelAndView irAMostrarResultado(@RequestParam String metodo, @RequestParam String cadena) {
+	@RequestMapping(path = "/mostrarResultado/{operacion}/{cadena}" , method = RequestMethod.GET)
+	public ModelAndView irAMostrarResultado(@PathVariable String operacion, @PathVariable String cadena) {
 		
 		ModelMap modelo = new ModelMap();
 		
 		modelo.put("textoIngresado", cadena);
 		
-		switch(metodo) {
+		switch(operacion) {
 			case "pasarMayuscula":
 				modelo.put("resultado", cadena.toUpperCase());
-				modelo.put("método", " Pasar a mayúscula");
+				modelo.put("metodo", " Pasar a mayúscula");
 				break;
 			case "pasarMinuscula":
 				modelo.put("resultado", cadena.toLowerCase());
-				modelo.put("método", " Pasar a minuscula");
+				modelo.put("metodo", " Pasar a minuscula");
 				break;
 			case "invertirOrden":
 				modelo.put("resultado", invertirCadena(cadena));
-				modelo.put("método", " Invertir orden");
+				modelo.put("metodo", " Invertir orden");
 				break;
 			case "cantCaracteres":
 				modelo.put("resultado", cadena.length());
-				modelo.put("método", " Cantidad de caracteres");
+				modelo.put("metodo", " Cantidad de caracteres");
 				break;
 		}
 		

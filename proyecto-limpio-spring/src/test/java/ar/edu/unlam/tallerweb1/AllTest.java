@@ -177,9 +177,11 @@ public class AllTest extends SpringTest{
 				.createAlias("ubicacionGeografica","ub")
 				.add(Restrictions.lt("ub.latitud", 0.00))
 				.list();
+		
+		for(Ciudad ciudad : ciudadesHemisferioSur){
+			assertThat(ciudad.getUbicacionGeografica().getLatitud()).isLessThanOrEqualTo(0.00);
+		}
 
-		assertThat(ciudadesHemisferioSur).isNotNull();
-		assertThat(ciudadesHemisferioSur.size()).isEqualTo(1);
 	}
 	
 	

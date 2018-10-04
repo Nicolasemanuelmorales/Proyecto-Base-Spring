@@ -10,16 +10,27 @@
 	
 	<form action="mostrarResultado" method="GET">
 		<label>Ingrese la frase:</label><br>
-		<input type = "text" name="cadena"></input>
+		<input type = "text" name="cadena" id="cadena"></input>
 		<br>
 		<br>
 		<label>Seleccione un método:</label><br>
-		<input type="radio" name="metodo" value="pasarMayuscula" checked> Pasar a Mayuscula<br>
-  		<input type="radio" name="metodo" value="pasarMinuscula"> Pasar a Minuscula<br>
-  		<input type="radio" name="metodo" value="invertirOrden"> Invertir Orden <br>
-		<input type="radio" name="metodo" value="cantCaracteres"> Cantidad de Caracteres<br><br>
+		<input type="radio" id="1" name="nombreOperacion" value="pasarMayuscula" checked> Pasar a Mayuscula<br>
+  		<input type="radio" id="2" name="nombreOperacion" value="pasarMinuscula"> Pasar a Minuscula<br>
+  		<input type="radio" id="3" name="nombreOperacion" value="invertirOrden"> Invertir Orden <br>
+		<input type="radio" id="4" name="nombreOperacion" value="cantCaracteres"> Cantidad de Caracteres<br><br>
 		
-		<input type="submit" value="Convertir">
+		<input type="button" onclick="convertirCadena();" value="Convertir">
 	</form>
+	
+	<script>
+	
+		function convertirCadena(){
+			var cadena = document.getElementById("cadena").value;
+			var operacion = document.querySelector('input[name="nombreOperacion"]:checked').value;
+
+			location.href='./mostrarResultado/' + operacion + '/' + cadena;
+		}
+	
+	</script>
 </body>
 </html>
